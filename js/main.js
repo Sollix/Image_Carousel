@@ -35,10 +35,18 @@ $('#prev').on('click',function(event){
 
 var scoreArray = [];
 
-$('#your-vote').select(function(event){
-	scoreArray[currentindex]=$('#your-vote').val();
-	console.log(scoreArray);
-	//currentindex = currentindex + 1;
-	$('#image-to-vote-on').attr('src','images/' + imgArray[currentindex])
+// $('#your-vote').select(function(event){
+// 	scoreArray[currentindex]=$('#your-vote').val();
+// 	console.log(scoreArray);
+// 	//currentindex = currentindex + 1;
+// 	$('#image-to-vote-on').attr('src','images/' + imgArray[currentindex])
+// }); 
+	
+$('#your-vote').on('change', function(){
+	console.log("hello");
+// 	scoreArray[currentindex]=$('#your-vote').val();
+// 	console.log(scoreArray);
+// 	//currentindex = currentindex + 1;
+// 	$('#image-to-vote-on').attr('src','images/' + imgArray[currentindex])
 }); 
 	
