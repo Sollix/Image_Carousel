@@ -12,11 +12,12 @@ console.log(currentindex);
 
 //next and previous buttons
 $('#next').on('click',function(event){
-		if (currentindex < 5){
+		if (currentindex < 4){
 		currentindex = currentindex + 1;
 		$('#image-to-vote-on').attr('src','images/' + imgArray[currentindex])
 		}else {
 			$('#image-to-vote-on').attr('src','images/' + imgArray[imgArray.length - 1]);
+			$('#next').css('color','grey');
 		}
 		console.log(currentindex);
 	});
@@ -26,8 +27,10 @@ $('#prev').on('click',function(event){
 		if (currentindex > 0){
 		currentindex = currentindex - 1;
 		$('#image-to-vote-on').attr('src','images/' + imgArray[currentindex]);
+		$('#next').css('color','black');
 		}else{
 			$('#image-to-vote-on').attr('src','images/' + imgArray[0]);
+			$('#prev').css('color','grey');
 		}
 	});
 
@@ -43,10 +46,16 @@ var scoreArray = [];
 // }); 
 	
 $('#your-vote').on('change', function(){
-	console.log("hello");
-// 	scoreArray[currentindex]=$('#your-vote').val();
-// 	console.log(scoreArray);
-// 	//currentindex = currentindex + 1;
-// 	$('#image-to-vote-on').attr('src','images/' + imgArray[currentindex])
+	scoreArray[currentindex]=$('#your-vote').val();
+	if (currentindex < 5){
+		currentindex = currentindex + 1;
+		$('#image-to-vote-on').attr('src','images/' + imgArray[currentindex])
+		}else {
+			$('#image-to-vote-on').attr('src','images/' + imgArray[imgArray.length - 1]);
+			scoreArray.forEach(function (scoreArray){
+				scoreArray += scoreArray;
+			});
+			console.log(scoreArray);
+		}
 }); 
 	
